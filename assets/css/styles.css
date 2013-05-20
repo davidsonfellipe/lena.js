@@ -80,6 +80,7 @@ h2 {
 }
 
 .fb-likes {
-    margin: 50px auto;
+    height: 40px;
+    margin: 10px auto;
     text-align: center;
 }
