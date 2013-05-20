@@ -7,12 +7,12 @@ body {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 45px;
     margin-bottom: 0;
 }
 
 h2 {
-    font-size: 15px;
+    font-size: 12px;
 }
 
 text {
@@ -21,10 +21,20 @@ text {
     fill: #666;
 }
 
-.macbeth-container {
-    width: 960px;
+.demo-container {
+    width: 1040px;
     margin: 0 auto;
     font-size: 0;
+    text-align: center;
+}
+
+.filter {
+    padding: 5px;
+}
+
+.image-default {
+    display: block;
+    margin: auto;
 }
 
 .chart {
@@ -59,7 +69,6 @@ text {
 }
 
 .container {
-    text-align: right;
     color: #ccc;
     font-size: 10px;
     margin: 5px 0;
