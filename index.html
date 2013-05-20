@@ -23,12 +23,12 @@
 <body>
     <section class="macbeth-container">
         <img id="lena" src="assets/img/lena.jpg" style="display: none;">
-        <canvas id="grayscale" width="600" height="337"></canvas>
+        <canvas id="canvas" width="600" height="337"></canvas>
 
         <section class="container cie-container">
-            <select id="cie">
-                <option value="1931">1931</option>
-                <option value="1964">1964</option>
+            <select id="filter">
+                <option value="sepia" selected>sepia</option>
+                <option value="grayscale">grayscale</option>
             </select>
         </section>
 
@@ -43,6 +43,7 @@
     <!-- scripts for runner -->
 
     <script src="assets/js/filters/grayscale.js"></script>
+    <script src="assets/js/filters/sepia.js"></script>
 
     <!-- scripts for runner -->
     <script src="assets/js/runner/runner.js"></script>
