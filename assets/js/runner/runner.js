@@ -4,7 +4,13 @@ window.onload = function() {
         var img = document.getElementById("lena");
         var selectorCanvas = document.getElementById("canvas");
 
-        LenaJS.filterImage(selectorCanvas, LenaJS[this.value], img);
+        if(this.value) {
+            LenaJS.filterImage(selectorCanvas, LenaJS[this.value], img);
+            selectorCanvas.style.display = "block";
+        } else {
+            selectorCanvas.style.display = "none";
+        }
+
     }, false);
 
 };
