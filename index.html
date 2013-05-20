@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>by Davidson Fellipe</title>
+    <meta name="author" content="Davidson Fellipe">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="by Davidson Fellipe">
+    <meta property="og:site_name" content="Davidson Fellipe">
+    <meta property="og:url" content="http://fellipe.com/apps/macbeth-colorchecker-js/">
+    <meta property="og:image" content="http://fellipe.com/apps/macbeth-colorchecker-js/assets/img/opengraph.png">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="by Davidson Fellipe">
+    <meta property="fb:app_id" content="337306756343400">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <section class="macbeth-container">
+        <img id="lena" src="assets/img/lena.jpg" style="display: none;">
+        <canvas id="grayscale" width="600" height="337"></canvas>
+
+        <section class="container cie-container">
+            <select id="cie">
+                <option value="1931">1931</option>
+                <option value="1964">1964</option>
+            </select>
+        </section>
+
+        <div class="fb-likes">
+<!--             <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fellipe.com%2Fapps%2Fmacbeth-colorchecker-js%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=25" scrolling="no" frameborder="0" class="fb-likes" allowTransparency="true"></iframe> -->
+        </div>
+    </section>
+
+    <!-- scripts for runner -->
+    <script src="assets/js/lib/lena.js"></script>
+
+    <!-- scripts for runner -->
+
+    <script src="assets/js/filters/grayscale.js"></script>
+
+    <!-- scripts for runner -->
+    <script src="assets/js/runner/runner.js"></script>
+ </body>
+</html>

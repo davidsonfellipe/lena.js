@@ -1,0 +1,71 @@
+body {
+    background: url(../img/bg.jpg) repeat 0 0 #000;
+    color: #ccc;
+    font-family: "Helvetica Neue";
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 15px;
+}
+
+text {
+    font: 12px sans-serif;
+    stroke: transparent;
+    fill: #666;
+}
+
+.macbeth-container {
+    width: 960px;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.chart {
+    height: 280px;
+    margin-top:20px;
+    display: block;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.colors {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 440px;
+    display: inline-block;
+}
+
+.color {
+    border: 5px solid rgba(255, 255, 255, .05);
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+.info {
+    width: 50%;
+    display: inline-block;
+}
+
+.container {
+    text-align: right;
+    color: #ccc;
+    font-size: 10px;
+    margin: 5px 0;
+}
+
+.fb-likes {
+    margin: 50px auto;
+    text-align: center;
+}
