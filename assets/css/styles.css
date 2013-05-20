@@ -8,7 +8,8 @@ body {
 
 h1 {
     font-size: 45px;
-    margin-bottom: 0;
+    margin-bottom: 0px;
+    line-height: 40px;
 }
 
 h2 {
@@ -17,7 +18,7 @@ h2 {
 
 .demo-container {
     width: 1040px;
-    margin: 0 auto;
+    margin: 40px auto;
     font-size: 0;
     text-align: center;
     position: relative;
@@ -25,6 +26,7 @@ h2 {
 
 .filter {
     padding: 5px;
+    margin: 10px 0;
 }
 
 .image-default {
@@ -34,9 +36,9 @@ h2 {
 
 .image-canvas {
     left: 50%;
-    margin-left: -256px;
+    margin-left: -200px;
     position: absolute;
-    top: 34px;
+    top: 0;
 }
 
 .chart {
@@ -71,9 +73,10 @@ h2 {
 }
 
 .container {
-    color: #ccc;
     font-size: 10px;
-    margin: 5px 0;
+    left: 50%;
+    margin: 0 0 5px 225px;
+    position: absolute;
 }
 
 .fb-likes {
