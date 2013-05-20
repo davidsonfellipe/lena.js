@@ -15,12 +15,6 @@ h2 {
     font-size: 12px;
 }
 
-text {
-    font: 12px sans-serif;
-    stroke: transparent;
-    fill: #666;
-}
-
 .demo-container {
     width: 1040px;
     margin: 0 auto;
