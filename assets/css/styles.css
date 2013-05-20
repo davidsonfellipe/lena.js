@@ -26,6 +26,7 @@ text {
     margin: 0 auto;
     font-size: 0;
     text-align: center;
+    position: relative;
 }
 
 .filter {
@@ -35,6 +36,13 @@ text {
 .image-default {
     display: block;
     margin: auto;
+}
+
+.image-canvas {
+    left: 50%;
+    margin-left: -256px;
+    position: absolute;
+    top: 34px;
 }
 
 .chart {
