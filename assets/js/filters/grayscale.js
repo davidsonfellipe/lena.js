@@ -1,16 +1,13 @@
 LenaJS.grayscale = function(pixels, args) {
 
-  var d = pixels.data;
+  for (var i = 0; i < pixels.data.length; i += 4) {
 
-  for (var i = 0; i < d.length; i += 4) {
+    var r = pixels.data[i],
+        g = pixels.data[i+1],
+        b = pixels.data[i+2];
 
-    var r = d[i],
-        g = d[i+1],
-        b = d[i+2];
+    pixels.data[i] = pixels.data[i+1] = pixels.data[i+2] = 0.2126*r + 0.7152*g + 0.0722*b;
 
-    var v = 0.2126*r + 0.7152*g + 0.0722*b;
-
-    d[i] = d[i+1] = d[i+2] = v;
   }
 
   return pixels;
