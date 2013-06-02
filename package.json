@@ -2,6 +2,7 @@
   "name": "lena-js",
   "version": "0.0.1",
   "devDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.2"
   }
 }
