@@ -1,3 +1,11 @@
+/*
+ *  lena-js - v0.0.1
+ *  Library for image processing
+ *  https://github.com/davidsonfellipe/lena-js/
+ *
+ *  Made by Davidson Fellipe
+ *  Under MIT License
+ */
 LenaJS = {};
 
 LenaJS.getImage = function(img) {
