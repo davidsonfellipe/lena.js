@@ -15,8 +15,7 @@ module.exports = function(grunt) {
     },
     concat: {
       options: {
-        banner: "<%= meta.banner %>",
-        separator: ';'
+        banner: "<%= meta.banner %>"
       },
       dist: {
         src: ['lib/lena.js', 'lib/filters/*.js'],
