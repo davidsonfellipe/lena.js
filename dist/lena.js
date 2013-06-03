@@ -30,16 +30,13 @@ LenaJS.printCanvas = function(selector, idata) {
 
 };
 
-LenaJS.filterImage = function(selector, filter, image, var_args) {
+LenaJS.filterImage = function(selector, filter, image) {
 
   var args = [this.getImage(image)];
 
-  for (var i = 2; i < arguments.length; i++) {
-    args.push(arguments[i]);
-  }
-
   return this.printCanvas(selector, filter.apply(null, args));
-};;LenaJS.grayscale = function(pixels, args) {
+};
+LenaJS.grayscale = function(pixels, args) {
 
   for (var i = 0; i < pixels.data.length; i += 4) {
 
@@ -52,7 +49,8 @@ LenaJS.filterImage = function(selector, filter, image, var_args) {
   }
 
   return pixels;
-};;LenaJS.invert = function(pixels, args) {
+};
+LenaJS.invert = function(pixels, args) {
 
   var d = pixels.data;
 
@@ -120,7 +118,8 @@ LenaJS.blue = function(pixels, args) {
   }
 
   return pixels;
-};;LenaJS.saturation = function(pixels, args) {
+};
+LenaJS.saturation = function(pixels, args) {
 
     var amount = 2.9;
     var RW = 0.3086;
@@ -145,7 +144,8 @@ LenaJS.blue = function(pixels, args) {
     }
 
     return pixels;
-};;LenaJS.sepia = function(pixels, args) {
+};
+LenaJS.sepia = function(pixels, args) {
 
   var d = pixels.data;
 
@@ -165,7 +165,8 @@ LenaJS.blue = function(pixels, args) {
   }
 
   return pixels;
-};;LenaJS.thresholding = function(pixels, args) {
+};
+LenaJS.thresholding = function(pixels, args) {
 
   var data = pixels.data;
 
