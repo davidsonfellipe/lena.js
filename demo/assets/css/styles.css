@@ -82,16 +82,16 @@ ul, li {
 }
 
 .label-filters {
-    background: #222 url(alert-overlay.png) repeat-x;
+    background: #222;
     display: inline-block;
     padding: 5px 10px 6px;
 }
 .btn,
 .btn:visited {
-    background: #222 url(alert-overlay.png) repeat-x; 
-    display: inline-block; 
-    padding: 5px 10px 6px; 
-    color: #fff; 
+    background: #222;
+    display: inline-block;
+    padding: 5px 10px 6px;
+    color: #fff;
     text-decoration: none;
     border-bottom: 1px solid rgba(0,0,0,0.25);
     position: relative;

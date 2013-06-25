@@ -1,4 +1,3 @@
-----
 #how to develop new filters
 
 install npm: 
