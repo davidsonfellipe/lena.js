@@ -131,4 +131,5 @@ ul, li {
 }
 .btn-reset {
     left: 235px;
+    z-index:9999;
 }
