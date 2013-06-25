@@ -255,21 +255,24 @@ LenaJS.roberts = function(pixels, args) {
 
   return LenaJS.convolution(pixels, operator);
 };
+/*
+    Ref: http://tams-www.informatik.uni-hamburg.de/applets/hades/webdemos/00-intro/02-imageprocessing/saturation.html
+*/
 LenaJS.saturation = function(pixels, args) {
 
-    var amount = 2.9;
-    var RW = 0.3086;
-    var RG = 0.6084;
-    var RB = 0.0820;
-    var RW0 = (1 - amount) * RW + amount;
-    var RW1 = (1 - amount) * RW;
-    var RW2 = (1 - amount) * RW;
-    var RG0 = (1 - amount) * RG;
-    var RG1 = (1 - amount) * RG + amount;
-    var RG2 = (1 - amount) * RG;
-    var RB0 = (1 - amount) * RB;
-    var RB1 = (1 - amount) * RB;
-    var RB2 = (1 - amount) * RB + amount;
+    var level = 2.9,
+        RW = 0.3086,
+        RG = 0.6084,
+        RB = 0.0820,
+        RW0 = (1 - level) * RW + level,
+        RW1 = (1 - level) * RW,
+        RW2 = (1 - level) * RW,
+        RG0 = (1 - level) * RG,
+        RG1 = (1 - level) * RG + level,
+        RG2 = (1 - level) * RG,
+        RB0 = (1 - level) * RB,
+        RB1 = (1 - level) * RB,
+        RB2 = (1 - level) * RB + level;
 
     for (var i = 0; i < pixels.data.length; i += 4) {
 
@@ -282,21 +285,18 @@ LenaJS.saturation = function(pixels, args) {
     return pixels;
 };
 LenaJS.sepia = function(pixels, args) {
-  var d = pixels.data;
 
-  for (var i = 0; i < d.length; i += 4) {
+  for (var i = 0; i < pixels.data.length; i += 4) {
 
-    var r = d[i],
-        g = d[i+1],
-        b = d[i+2];
+    var r = pixels.data[i],
+        g = pixels.data[i+1],
+        b = pixels.data[i+2];
 
-    var v = 0.3*r + 0.59*g + 0.11*b;
+    pixels.data[i] = pixels.data[i+1] = pixels.data[i+2] = 0.3*r + 0.59*g + 0.11*b;
 
-    d[i] = d[i+1] = d[i+2] = v;
-
-    d[i] += 40;
-    d[i+1] += 20;
-    d[i+2] -= 20;
+    pixels.data[i] += 40;
+    pixels.data[i+1] += 20;
+    pixels.data[i+2] -= 20;
   }
 
   return pixels;
@@ -334,17 +334,15 @@ LenaJS.sobelVertical = function(pixels, args) {
 };
 LenaJS.thresholding = function(pixels, args) {
 
-  var data = pixels.data;
+  for (var i = 0; i < pixels.data.length; i += 4) {
 
-  for (var i = 0; i < data.length; i += 4) {
-
-    var r = data[i],
-        g = data[i+1],
-        b = data[i+2];
+    var r = pixels.data[i],
+        g = pixels.data[i+1],
+        b = pixels.data[i+2];
 
     var v = 0.2126*r + 0.7152*g + 0.0722*b;
 
-    data[i] = data[i+1] = data[i+2] = v > 128 ? 255 : 0;
+    pixels.data[i] = pixels.data[i+1] = pixels.data[i+2] = v > 128 ? 255 : 0;
   }
 
   return pixels;
