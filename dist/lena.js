@@ -65,13 +65,13 @@ LenaJS.convolution = function(pixels, weights) {
     for (var x = 0; x < canvasWidth; x++) {
 
       var dstOff = (y * canvasWidth + x) * 4,
-          sumReds=0,
-          sumGreens=0,
-          sumBlues=0,
-          sumAlphas=0;
+          sumReds = 0,
+          sumGreens = 0,
+          sumBlues = 0,
+          sumAlphas = 0;
 
-      for (var kernelY=0; kernelY < side; kernelY++) {
-        for (var kernelX=0; kernelX < side; kernelX++) {
+      for (var kernelY = 0; kernelY < side; kernelY++) {
+        for (var kernelX = 0; kernelX < side; kernelX++) {
 
           var currentKernelY = y + kernelY - halfSide,
               currentKernelX = x + kernelX - halfSide;
@@ -153,17 +153,12 @@ LenaJS.highpass = function(pixels, args) {
 };
 LenaJS.invert = function(pixels, args) {
 
-  var d = pixels.data;
+  for (var i = 0; i < pixels.data.length; i += 4) {
 
-  for (var i = 0; i < d.length; i += 4) {
+    pixels.data[i] = 255 - pixels.data[i];
+    pixels.data[i+1] = 255 - pixels.data[i+1];
+    pixels.data[i+2] = 255 - pixels.data[i+2];
 
-    var r = d[i],
-        g = d[i+1],
-        b = d[i+2];
-
-    d[i] = 255 - d[i];
-    d[i+1] = 255 - d[i+1];
-    d[i+2] = 255 - d[i+2];
   }
 
   return pixels;
