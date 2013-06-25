@@ -5,12 +5,12 @@
     <meta name="author" content="Davidson Fellipe">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="LenaJS by Davidson Fellipe">
+    <meta property="og:title" content="LenaJS, a Library for image processing">
     <meta property="og:site_name" content="Davidson Fellipe">
-    <meta property="og:url" content="http://fellipe.com/apps/lena-js/">
-    <meta property="og:image" content="http://fellipe.com/apps/lena-js/assets/img/lena.jpg">
+    <meta property="og:url" content="http://fellipe.com/demo/lena-js/">
+    <meta property="og:image" content="http://fellipe.com/demo/lena-js/assets/img/lena.jpg">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="LenaJS, a Library for image processing">
+    <meta property="og:description" content="LenaJS, a Library for image processing using Javascript">
     <meta property="fb:app_id" content="337306756343400">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -18,31 +18,65 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <script src="assets/js/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/js/vendor/jquery-drag-drop-plugin/jquery-drag-drop-plugin.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- vendor styles -->
+    <link rel="stylesheet" href="assets/css/vendor/nvd3/nv.d3.css">
 </head>
 <body>
-    <a href="https://github.com/davidsonfellipe/lena-js/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
 
     <a href="https://github.com/davidsonfellipe/lena-js/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
 
     <h1>Lena.JS Demo</h1>
-    <h2>Tested only Firefox, Chrome and Safari ( in development )</h2>
+
+    <ul class="filter">
+        <li>
+            <ul>
+                <li class="label-filters"><span>pixel to pixel:</span></li>
+                <li class="btn btn-filter" draggable="true" data-filter="grayscale">grayscale</li>
+                <li class="btn btn-filter" draggable="true" data-filter="sepia">sepia</li>
+                <li class="btn btn-filter" draggable="true" data-filter="thresholding">thresholding-128</li>
+                <li class="btn btn-filter" draggable="true" data-filter="invert">invert</li>
+                <li class="btn btn-filter" draggable="true" data-filter="saturation">saturation</li>
+                <li class="btn btn-filter" draggable="true" data-filter="red">red</li>
+                <li class="btn btn-filter" draggable="true" data-filter="green">green</li>
+                <li class="btn btn-filter" draggable="true" data-filter="blue">blue</li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li class="label-filters"><span>edge/line detection:</span></li>
+                <li class="btn btn-filter" draggable="true" data-filter="roberts">roberts</li>
+                <li class="btn btn-filter" draggable="true" data-filter="sharpen">sharpen</li>
+                <li class="btn btn-filter" draggable="true" data-filter="sobelVertical">sobel y</li>
+                <li class="btn btn-filter" draggable="true" data-filter="sobelHorizontal">sobel x</li>
+                <li class="btn btn-filter" draggable="true" data-filter="highpass">highpass</li>
+                <li class="btn btn-filter" draggable="true" data-filter="laplacian">laplacian</li>
+                <li class="btn btn-filter" draggable="true" data-filter="gaussian">gaussian</li>
+                <li class="btn btn-filter" draggable="true" data-filter="prewittVertical">prewitt y</li>
+                <li class="btn btn-filter" draggable="true" data-filter="prewittHorizontal">prewitt x</li>
+            </ul>
+        </li>
+    </ul>
 
     <section class="demo-container">
-        <section class="container select-container">
-            <select id="filter" class="filter">
-                <option value="">choose a filter</option>
-                <option value="grayscale">grayscale</option>
-                <option value="invert">invert</option>
-                <option value="saturation">saturation</option>
-                <option value="sepia">sepia</option>
-                <option value="thresholding">thresholding</option>
-            </select>
-        </section>
+
 
         <img id="lena" src="assets/img/lena.jpg" class="image-default" width="400" height="400">
-        <canvas id="canvas" width="400" height="400" class="image-canvas"></canvas>
 
+        <div class="content">
+            <div id="destination" class="drop boxes">
+            </div>
+            <canvas id="canvas" width="400" height="400" class="image-canvas"></canvas><br>
+            <span class="btn btn-drop" draggable="true">drop filters here</span>
+            <span id="filter-reset" class="btn btn-reset" draggable="true" data-filter="reset">remove all filters</span>
+        </div>
+
+        <section class="info" id="chart1">
+            <svg class="chart" style="width: 300px;"></svg>
+        </section>
 
         <div class="fb-likes">
             <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fellipe.com%2Fapps%2Flena-js%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=25" scrolling="no" frameborder="0" class="fb-likes" allowTransparency="true"></iframe>
@@ -50,12 +84,26 @@
     </section>
 
     <!-- scripts for lib -->
-    <script src="../dist/lena.min.js"></script>
+    <script src="../dist/lena.js"></script>
+
+    <!-- scripts for nvd3 -->
+    <script src="assets/js/vendor/nvd3/d3.v2.min.js"></script>
+    <script src="assets/js/vendor/nvd3/nv.d3.min.js"></script>
+    <script src="assets/js/vendor/nvd3/tooltip.js"></script>
+    <script src="assets/js/vendor/nvd3/utils.js"></script>
+    <script src="assets/js/vendor/nvd3/models/legend.js"></script>
+    <script src="assets/js/vendor/nvd3/models/axis.js"></script>
+    <script src="assets/js/vendor/nvd3/models/scatter.js"></script>
+    <script src="assets/js/vendor/nvd3/models/line.js"></script>
+    <script src="assets/js/vendor/nvd3/models/lineChart.js"></script>
+
+    <!-- scripts for runner -->
+    <script src="assets/js/runner/config-chart.js"></script>
 
     <!-- scripts for runner -->
     <script src="assets/js/runner/runner.js"></script>
 
-    <script type="text/javascript">
+    <script>
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-2123552-1']);
         _gaq.push(['_trackPageview']);

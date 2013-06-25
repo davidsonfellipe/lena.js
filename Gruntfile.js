@@ -30,6 +30,16 @@ module.exports = function(grunt) {
         src: 'dist/lena.js',
         dest: 'dist/lena.min.js'
       }
+    },
+    watch: {
+      scripts: {
+        files: ['lib/lena.js', 'lib/util/*.js', 'lib/filters/*.js'],
+        tasks: ['concat'],
+        options: {
+          nospawn: true,
+          debounceDelay: 250,
+        },
+      },
     }
   });
 
@@ -39,7 +49,9 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "concat" task.
   grunt.loadNpmTasks('grunt-contrib-concat');
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
   // Default task(s).
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['concat']);
 
 };
