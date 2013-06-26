@@ -77,6 +77,8 @@ ul, li {
 
 .fb-likes {
     height: 100px;
+    width: 380px;
+    padding: 5px 10px 0 10px;
     margin: 10px auto;
     text-align: center;
 }
