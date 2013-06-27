@@ -6,6 +6,8 @@
  *  Made by Davidson Fellipe
  *  Under MIT License
  */
+// http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/
+
 var LenaJS = {};
 
 LenaJS.getImage = function(img) {
@@ -129,6 +131,8 @@ LenaJS.gaussian = function(pixels, args) {
 
   return LenaJS.convolution(pixels, operator);
 };
+// http://rosettacode.org/wiki/Grayscale_image
+
 LenaJS.grayscale = function(pixels, args) {
 
   for (var i = 0; i < pixels.data.length; i += 4) {
