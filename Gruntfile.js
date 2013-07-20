@@ -17,10 +17,16 @@ module.exports = function(grunt) {
       options: {
         banner: "<%= meta.banner %>"
       },
-      dist: {
+      basic: {
         src: ['lib/lena.js', 'lib/util/*.js', 'lib/filters/*.js'],
         dest: 'dist/lena.js'
-      }
+      },
+      extras: {
+        src: ['demo/assets/js/vendor/jquery/*.js',
+              'demo/assets/js/vendor/jquery-drag-drop-plugin/*.js',
+              'demo/assets/js/nvd3/*.js'],
+        dest: 'demo/assets/js/vendor/all.js'
+      },
     },
     uglify: {
       options: {
@@ -34,7 +40,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['lib/lena.js', 'lib/util/*.js', 'lib/filters/*.js'],
-        tasks: ['concat'],
+        tasks: ['concat', 'uglify'],
         options: {
           nospawn: true,
           debounceDelay: 250,
