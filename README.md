@@ -1,4 +1,4 @@
-[![Stories in Ready](http://badge.waffle.io/davidsonfellipe/lena-js.png)](http://waffle.io/davidsonfellipe/lena-js)  
+[![Stories in Ready](https://badge.waffle.io/davidsonfellipe/lena-js.png)](http://waffle.io/davidsonfellipe/lena-js)  
 ## Developing new filters
 
 Follow those steps to develop new filters.
