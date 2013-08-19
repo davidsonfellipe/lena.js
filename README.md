@@ -1,5 +1,6 @@
 [![Stories in Ready](http://badge.waffle.io/davidsonfellipe/lena-js.png)](http://waffle.io/davidsonfellipe/lena-js)  
 
+[![Dependency Status](https://david-dm.org/davidsonfellipe/lena-js.png)](https://david-dm.org/davidsonfellipe/lena-js)
 
 ## Existing filters
 
@@ -17,6 +18,7 @@ sharpen
 sobel
 thresholding
 
+=======
 
 ## Developing new filters
 
