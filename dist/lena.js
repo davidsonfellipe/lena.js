@@ -49,7 +49,6 @@ LenaJS.redrawCanvas = function(selector, filter) {
 
     return this.printCanvas(selector, filter.apply(null, ctx));
 };
-//http://rosettacode.org/wiki/Image_convolution
 LenaJS.convolution = function(pixels, weights) {
 
   var side = Math.round(Math.sqrt(weights.length)),

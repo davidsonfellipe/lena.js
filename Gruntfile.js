@@ -40,7 +40,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['lib/lena.js', 'lib/util/*.js', 'lib/filters/*.js'],
-        tasks: ['concat', 'uglify'],
+        tasks: ['concat'],
         options: {
           nospawn: true,
           debounceDelay: 250,
