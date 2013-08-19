@@ -4,19 +4,19 @@
 
 ## Existing filters
 
-gaussian
-grayscale
-highpass
-invert
-laplacian
-prewitt
-rgb
-roberts
-saturation
-sepia
-sharpen
-sobel
-thresholding
+* gaussian
+* grayscale
+* highpass
+* invert
+* laplacian
+* prewitt
+* rgb
+* roberts
+* saturation
+* sepia
+* sharpen
+* sobel
+* thresholding
 
 =======
 
