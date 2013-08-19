@@ -1,4 +1,23 @@
 [![Stories in Ready](http://badge.waffle.io/davidsonfellipe/lena-js.png)](http://waffle.io/davidsonfellipe/lena-js)  
+
+
+## Existing filters
+
+gaussian
+grayscale
+highpass
+invert
+laplacian
+prewitt
+rgb
+roberts
+saturation
+sepia
+sharpen
+sobel
+thresholding
+
+
 ## Developing new filters
 
 Follow those steps to develop new filters.
