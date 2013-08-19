@@ -18,8 +18,6 @@
 * sobel
 * thresholding
 
-=======
-
 ## Developing new filters
 
 Follow those steps to develop new filters.
