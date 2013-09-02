@@ -1,6 +1,6 @@
 [![Dependency Status](https://david-dm.org/davidsonfellipe/lena-js.png)](https://david-dm.org/davidsonfellipe/lena-js)
 
-## Existing filters
+## Current filters
 
 * gaussian
 * grayscale
