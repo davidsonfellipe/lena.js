@@ -1,3 +1,7 @@
+# Lena-js, Library for image processing 
+
+Demo: [http://fellipe.com/demos/lena-js/](http://fellipe.com/demos/lena-js/)
+
 [![Dependency Status](https://david-dm.org/davidsonfellipe/lena-js.png)](https://david-dm.org/davidsonfellipe/lena-js)
 
 ## Current filters
