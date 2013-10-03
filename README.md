@@ -1,6 +1,10 @@
+# Lena-js, Library for image processing 
+
+Demo: [http://fellipe.com/demos/lena-js/](http://fellipe.com/demos/lena-js/)
+
 [![Dependency Status](https://david-dm.org/davidsonfellipe/lena-js.png)](https://david-dm.org/davidsonfellipe/lena-js)
 
-## Existing filters
+## Current filters
 
 * gaussian
 * grayscale
@@ -28,6 +32,13 @@ Follow those steps to develop new filters.
 | **04** | Install grunt to current project | `npm install grunt --save-dev` |
 | **05** | And finally run it with | `grunt watch` |
 
+
+#### Author
+
+[![Davidson Fellipe](http://gravatar.com/avatar/054c583ad5dc09a861874e14dcb43e4c?s=70)](https://github.com/davidsonfellipe)
+<br>
+[Davidson Fellipe](https://github.com/davidsonfellipe)
+
 ## License
 
-[MIT License](http://davidsonfellipe.mit-license.org/)
+Code is under [MIT](http://davidsonfellipe.mit-license.org) license
