@@ -24,7 +24,7 @@ module.exports = function(grunt) {
       extras: {
         src: ['demo/assets/js/vendor/jquery/*.js',
               'demo/assets/js/vendor/jquery-drag-drop-plugin/*.js',
-              'demo/assets/js/nvd3/*.js'],
+              'demo/assets/js/vendor/nvd3/*.js'],
         dest: 'demo/assets/js/vendor/all.js'
       },
     },
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ['lib/lena.js', 'lib/util/*.js', 'lib/filters/*.js'],
+        files: ['lib/lena.js', 'lib/util/*.js', 'lib/filters/*.js', 'demo/assets/js/runner/*.js'],
         tasks: ['concat'],
         options: {
           nospawn: true,
