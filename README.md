@@ -1,6 +1,9 @@
-# Lena-js, Library for image processing 
+# Lena.js
+_Library for image processing_
 
-Demo: [http://fellipe.com/demos/lena-js/](http://fellipe.com/demos/lena-js/)
+# Demo
+
+[http://fellipe.com/demos/lena-js/](http://fellipe.com/demos/lena-js/)
 
 [![Dependency Status](https://david-dm.org/davidsonfellipe/lena-js.png)](https://david-dm.org/davidsonfellipe/lena-js)
 
@@ -41,7 +44,7 @@ Follow those steps to develop new filters.
 
 #### Contribute
 
-Anyone and everyone is welcome to contribute. See some [developers](https://github.com/davidsonfellipe/lena-js/graphs/contributors) that helped.
+Anyone and everyone is welcome to contribute. See some [developers](https://github.com/davidsonfellipe/lena.js/graphs/contributors) that helped.
 
 
 ## License
