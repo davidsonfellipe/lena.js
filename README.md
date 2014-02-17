@@ -23,6 +23,10 @@ _Library for image processing_
 * sobel
 * thresholding
 
+## Install via bower
+
+`bower install lena.js`
+
 ## Developing new filters
 
 Follow those steps to develop new filters.
