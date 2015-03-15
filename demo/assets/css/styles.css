@@ -17,7 +17,7 @@ h2 {
 }
 
 text {
-    stroke: none; 
+    stroke: none;
     fill: #666;
 }
 
@@ -37,7 +37,7 @@ ul, li {
     padding: 5px;
     margin: 10px 0 10px -15px;
     text-align: left;
-    width: 1200px;
+    width: 100%;
 }
 
 .image-default {

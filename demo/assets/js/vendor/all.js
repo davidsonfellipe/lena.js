@@ -263,6 +263,7 @@ window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequest
  * A no-frills tooltip implementation.
  *****/
 
+
 (function() {
 
   var nvtooltip = window.nv.tooltip = {};
