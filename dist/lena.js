@@ -24,29 +24,30 @@ LenaJS.getImage = function(img) {
 
 LenaJS.printCanvas = function(selector, idata) {
 
-    selector.width = idata.width;
-    selector.height = idata.height;
+  selector.width = idata.width;
+  selector.height = idata.height;
 
-    var ctx = selector.getContext('2d');
-    ctx.putImageData(idata, 0, 0);
+  var ctx = selector.getContext('2d');
+  ctx.putImageData(idata, 0, 0);
 
 };
 
 LenaJS.filterImage = function(selector, filter, image) {
 
-    var args = [this.getImage(image)];
+  var args = [this.getImage(image)];
 
-    return this.printCanvas(selector, filter.apply(null, args));
+  return this.printCanvas(selector, filter.apply(null, args));
 };
 
 LenaJS.redrawCanvas = function(selector, filter) {
 
-    var ctx = selector.getContext('2d');
+  var ctx = selector.getContext('2d');
 
-    ctx = [ctx.getImageData(0, 0, selector.width, selector.height)];
+  ctx = [ctx.getImageData(0, 0, selector.width, selector.height)];
 
-    return this.printCanvas(selector, filter.apply(null, ctx));
+  return this.printCanvas(selector, filter.apply(null, ctx));
 };
+
 LenaJS.convolution = function(pixels, weights) {
 
   var side = Math.round(Math.sqrt(weights.length)),
@@ -97,27 +98,33 @@ LenaJS.convolution = function(pixels, weights) {
   }
   return outputData;
 };
+/*global LenaJS:false */
 LenaJS.histogram = function(image) {
 
-    var pixels = this.getImage(image),
-        zeroedArray = Array(257).join('0').split('');
+  'use strict';
 
-    var histogram = {r: zeroedArray.map(Number),
-                     g: zeroedArray.map(Number),
-                     b: zeroedArray.map(Number)};
+  var pixels = this.getImage(image),
+    zeroedArray = new Array(257).join('0').split('');
 
-    for (var i = 0; i < pixels.data.length; i += 4) {
+  var histogram = {
+    r: zeroedArray.map(Number),
+    g: zeroedArray.map(Number),
+    b: zeroedArray.map(Number)
+  };
 
-        histogram.r[pixels.data[i]]++;
+  for (var i = 0; i < pixels.data.length; i += 4) {
 
-        histogram.g[pixels.data[i+1]]++;
+    histogram.r[pixels.data[i]]++;
 
-        histogram.b[pixels.data[i+2]]++;
+    histogram.g[pixels.data[i + 1]]++;
 
-    }
+    histogram.b[pixels.data[i + 2]]++;
 
-    return histogram;
+  }
+
+  return histogram;
 };
+
 LenaJS.gaussian = function(pixels, args) {
 
   var divider = 16,
@@ -151,6 +158,7 @@ LenaJS.highpass = function(pixels, args) {
 
   return LenaJS.convolution(pixels, operator);
 };
+
 LenaJS.invert = function(pixels, args) {
 
   for (var i = 0; i < pixels.data.length; i += 4) {
@@ -173,6 +181,27 @@ LenaJS.laplacian = function(pixels, args) {
 
   return LenaJS.convolution(pixels, operator);
 };
+LenaJS.lowpass3 = function(pixels, args) {
+  var k = 1/9;
+  var operator = [ k, k, k,
+                   k, k, k,
+                   k, k, k];
+
+  return LenaJS.convolution(pixels, operator);
+};
+
+LenaJS.lowpass5 = function(pixels, args) {
+  var k = 1/25;
+
+ var operator = [ k, k, k, k, k,
+                  k, k, k, k, k,
+                  k, k, k, k, k,
+                  k ,k, k, k, k,
+                  k ,k, k, k, k];
+
+  return LenaJS.convolution(pixels, operator);
+};
+
 // http://en.wikipedia.org/wiki/Prewitt_operator
 
 LenaJS.prewittHorizontal = function(pixels, args) {
