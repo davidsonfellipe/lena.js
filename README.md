@@ -22,6 +22,8 @@ _Library for image processing_
 * sharpen
 * sobel
 * thresholding
+* lowpass 3x3
+* lowpass 5x5
 
 ## Install via bower
 
