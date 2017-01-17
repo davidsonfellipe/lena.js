@@ -98,6 +98,37 @@ LenaJS.convolution = function(pixels, weights) {
   }
   return outputData;
 };
+LenaJS.gradient = function(deltaX, deltaY) {
+  var srcX = deltaX.data,
+      canvasWidth = deltaX.width,
+      canvasHeight = deltaX.height,
+      srcY = deltaY.data,
+      temporaryCanvas = document.createElement('canvas'),
+      temporaryCtx = temporaryCanvas.getContext('2d'),
+      outputData = temporaryCtx.createImageData(canvasWidth, canvasHeight),
+      outputDataDir = new Array(srcX.length).fill(0);
+
+  for (var y = 0; y < canvasHeight; y++) {
+
+    for (var x = 0; x < canvasWidth; x++) {
+
+      var dstOff = (y * canvasWidth + x) * 4;
+
+      outputData.data[dstOff] = Math.sqrt(Math.pow(srcX[dstOff], 2) +  Math.pow(srcY[dstOff], 2));
+      outputData.data[dstOff+1] = Math.sqrt(Math.pow(srcX[dstOff+1], 2) +  Math.pow(srcY[dstOff+1], 2));
+      outputData.data[dstOff+2] = Math.sqrt(Math.pow(srcX[dstOff+2], 2) +  Math.pow(srcY[dstOff+2], 2));
+      outputData.data[dstOff+3] = 255;
+
+      outputDataDir[dstOff] = Math.atan2(srcY[dstOff], srcX[dstOff]);
+      outputDataDir[dstOff+1] = Math.atan2(srcY[dstOff+1], srcX[dstOff+1]);
+      outputDataDir[dstOff+2] = Math.atan2(srcY[dstOff+2], srcX[dstOff+2]);
+      outputDataDir[dstOff+3] = 255;
+    }
+  }
+  result = {magnitude: outputData, direction: outputDataDir}
+  return result;
+};
+
 /*global LenaJS:false */
 LenaJS.histogram = function(image) {
 
@@ -123,6 +154,77 @@ LenaJS.histogram = function(image) {
   }
 
   return histogram;
+};
+
+LenaJS.nonMaximumSuppression = function(pixels, direction) {
+  var side = Math.round(Math.sqrt(25)),
+      halfSide = Math.floor(side/2),
+      src = pixels.data,
+      canvasWidth = pixels.width,
+      canvasHeight = pixels.height,
+      temporaryCanvas = document.createElement('canvas'),
+      temporaryCtx = temporaryCanvas.getContext('2d'),
+      outputData = temporaryCtx.createImageData(canvasWidth, canvasHeight);
+
+  for (var y = 0; y < canvasHeight; y++) {
+
+    for (var x = 0; x < canvasWidth; x++) {
+      var dstOff = (y * canvasWidth + x) * 4,
+          maxReds = src[dstOff],
+          maxGreens = src[dstOff+1],
+          maxBlues = src[dstOff+2],
+          maxAlphas = src[dstOff+3];
+
+      for (var kernelY = 0; kernelY < side; kernelY++) {
+        for (var kernelX = 0; kernelX < side; kernelX++) {
+
+          var currentKernelY = y + kernelY - halfSide,
+              currentKernelX = x + kernelX - halfSide;
+
+          if (currentKernelY >= 0 &&
+              currentKernelY < canvasHeight &&
+              currentKernelX >= 0 &&
+              currentKernelX < canvasWidth) {
+
+            var offset = (currentKernelY * canvasWidth + currentKernelX) * 4;
+            var currentKernelAngle = Math.atan2(currentKernelY - y, currentKernelX -x);
+
+            maxReds = src[offset]*Math.abs(Math.cos(direction[dstOff]-currentKernelAngle)) > maxReds ? 0 : maxReds
+            maxGreens = src[offset+1]*Math.abs(Math.cos(direction[dstOff+1]-currentKernelAngle)) > maxGreens ? 0 : maxGreens
+            maxBlues = src[offset+2]*Math.abs(Math.cos(direction[dstOff+2]-currentKernelAngle)) > maxBlues ? 0 : maxBlues
+          }
+        }
+      }
+
+      outputData.data[dstOff] = maxReds *2;
+      outputData.data[dstOff+1] = maxGreens *2;
+      outputData.data[dstOff+2] = maxBlues *2;
+      outputData.data[dstOff+3] = 255;
+    }
+  }
+  return outputData;
+};
+
+LenaJS.bigGaussian = function(pixels, args) {
+
+  var divider = 159,
+      operator = [2/divider, 4/divider, 5/divider, 4/divider, 2/divider,
+                  4/divider, 9/divider,12/divider, 9/divider, 4/divider,
+                  5/divider,12/divider,15/divider,12/divider, 5/divider,
+                  4/divider, 9/divider,12/divider, 9/divider, 4/divider,
+                  2/divider, 4/divider, 5/divider, 4/divider, 2/divider];
+
+  return LenaJS.convolution(pixels, operator);
+};
+
+LenaJS.canny = function(pixels, args) {
+  pixels = LenaJS.bigGaussian(pixels);
+  var deltaX = LenaJS.sobelHorizontal(pixels);
+  var deltaY = LenaJS.sobelVertical(pixels);
+  var r = LenaJS.gradient(deltaX, deltaY); //Magnitude and Angle of edges
+  var lp = LenaJS.laplacian(pixels); //The laplacian represent better the magnitude
+  pixels = LenaJS.nonMaximumSuppression(lp, r.direction);
+  return LenaJS.thresholding(pixels, 8)
 };
 
 LenaJS.gaussian = function(pixels, args) {
@@ -358,8 +460,8 @@ LenaJS.thresholding = function(pixels, args) {
         b = pixels.data[i+2];
 
     var v = 0.2126*r + 0.7152*g + 0.0722*b;
-
-    pixels.data[i] = pixels.data[i+1] = pixels.data[i+2] = v > 128 ? 255 : 0;
+    thr = args || 128
+    pixels.data[i] = pixels.data[i+1] = pixels.data[i+2] = v > thr ? 255 : 0;
   }
 
   return pixels;
