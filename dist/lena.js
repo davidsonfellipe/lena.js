@@ -125,7 +125,7 @@ LenaJS.gradient = function(deltaX, deltaY) {
       outputDataDir[dstOff+3] = 255;
     }
   }
-  result = {magnitude: outputData, direction: outputDataDir}
+  result = {magnitude: outputData, direction: outputDataDir};
   return result;
 };
 
@@ -186,12 +186,12 @@ LenaJS.nonMaximumSuppression = function(pixels, direction) {
               currentKernelX >= 0 &&
               currentKernelX < canvasWidth) {
 
-            var offset = (currentKernelY * canvasWidth + currentKernelX) * 4;
-            var currentKernelAngle = Math.atan2(currentKernelY - y, currentKernelX -x);
+            var offset = (currentKernelY * canvasWidth + currentKernelX) * 4,
+                currentKernelAngle = Math.atan2(currentKernelY - y, currentKernelX -x);
 
-            maxReds = src[offset]*Math.abs(Math.cos(direction[dstOff]-currentKernelAngle)) > maxReds ? 0 : maxReds
-            maxGreens = src[offset+1]*Math.abs(Math.cos(direction[dstOff+1]-currentKernelAngle)) > maxGreens ? 0 : maxGreens
-            maxBlues = src[offset+2]*Math.abs(Math.cos(direction[dstOff+2]-currentKernelAngle)) > maxBlues ? 0 : maxBlues
+            maxReds = src[offset]*Math.abs(Math.cos(direction[dstOff]-currentKernelAngle)) > maxReds ? 0 : maxReds;
+            maxGreens = src[offset+1]*Math.abs(Math.cos(direction[dstOff+1]-currentKernelAngle)) > maxGreens ? 0 : maxGreens;
+            maxBlues = src[offset+2]*Math.abs(Math.cos(direction[dstOff+2]-currentKernelAngle)) > maxBlues ? 0 : maxBlues;
           }
         }
       }
@@ -224,7 +224,7 @@ LenaJS.canny = function(pixels, args) {
   var r = LenaJS.gradient(deltaX, deltaY); //Magnitude and Angle of edges
   var lp = LenaJS.laplacian(pixels); //The laplacian represent better the magnitude
   pixels = LenaJS.nonMaximumSuppression(lp, r.direction);
-  return LenaJS.thresholding(pixels, 8)
+  return LenaJS.thresholding(pixels, 8);
 };
 
 LenaJS.gaussian = function(pixels, args) {
@@ -460,7 +460,7 @@ LenaJS.thresholding = function(pixels, args) {
         b = pixels.data[i+2];
 
     var v = 0.2126*r + 0.7152*g + 0.0722*b;
-    thr = args || 128
+    thr = args || 128;
     pixels.data[i] = pixels.data[i+1] = pixels.data[i+2] = v > thr ? 255 : 0;
   }
 
