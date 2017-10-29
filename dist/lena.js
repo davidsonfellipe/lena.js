@@ -236,6 +236,7 @@ LenaJS.gaussian = function(pixels, args) {
 
   return LenaJS.convolution(pixels, operator);
 };
+
 // http://rosettacode.org/wiki/Grayscale_image
 
 LenaJS.grayscale = function(pixels, args) {
@@ -305,16 +306,17 @@ LenaJS.lowpass5 = function(pixels, args) {
 };
 
 LenaJS.mirror = function(pixels, args) {
-  const tmp = [];
-  const width = (pixels.width * 4);
+  var tmp = [];
+  var width = (pixels.width * 4);
 
-  for (let h = 0; h < pixels.height; h++) {
-    const offset = h * width;
+  for (var h = 0; h < pixels.height; h++) {
+    var offset = h * width;
+    var middle = pixels.width / 2;
 
-    for (let w = 0; w < pixels.width / 2; w++) {
-      const pos = w * 4;
-      const pxl = pos + offset;
-      const lastPxl = width - pos - 4 + offset;
+    for (var w = 0; w < middle; w++) {
+      var pos = w * 4;
+      var pxl = pos + offset;
+      var lastPxl = width - pos - 4 + offset;
 
       tmp[0] = pixels.data[pxl];
       tmp[1] = pixels.data[pxl + 1];
@@ -333,8 +335,8 @@ LenaJS.mirror = function(pixels, args) {
     }
   }
 
-    return pixels;
-}
+  return pixels;
+};
 
 // http://en.wikipedia.org/wiki/Prewitt_operator
 
