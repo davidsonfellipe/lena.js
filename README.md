@@ -1,9 +1,13 @@
 # Lena.js
 _Library for image processing_
 
-# Demo
+
+
+## Demo
 
 [http://fellipe.com/demos/lena-js/](http://fellipe.com/demos/lena-js/)
+
+
 
 ## Current filters
 
@@ -31,22 +35,31 @@ _Library for image processing_
 
 Follow those steps to develop new filters.
 
-| Steps | Description | Command |
-| :----------- | :----------- | :-------------- |
-| **01** | Install npm | `sudo npm install` |
-| **02** | If you have installed Grunt globally in the past, you will need to remove it first | `npm uninstall -g grunt` |
-| **03** | Install grunt-cli | `npm install -g grunt-cli` |
-| **04** | Install grunt to current project | `npm install grunt --save-dev` |
-| **05** | And finally run it with | `grunt watch` |
+| Steps  | Description                              | Command                        |
+| :----- | :--------------------------------------- | :----------------------------- |
+| **01** | Install npm                              | `sudo npm install`             |
+| **02** | If you have installed Grunt globally in the past, you will need to remove it first | `npm uninstall -g grunt`       |
+| **03** | Install grunt-cli                        | `npm install -g grunt-cli`     |
+| **04** | Install grunt to current project         | `npm install grunt --save-dev` |
+| **05** | And finally run it with                  | `grunt watch`                  |
 
 
-#### Author
+
+## Author
 
 [![Davidson Fellipe](http://gravatar.com/avatar/054c583ad5dc09a861874e14dcb43e4c?s=70)](https://github.com/davidsonfellipe)
 <br>
 [Davidson Fellipe](https://github.com/davidsonfellipe)
 
-#### Contribute
+
+
+## Tutorials
+
+-  [How to add image filters (photo effects) to images in the browser with JavaScript using Lena.js](https://ourcodeworld.com/articles/read/515/how-to-add-image-filters-photo-effects-to-images-in-the-browser-with-javascript-using-lena-js)
+
+
+
+## Contribute
 
 Anyone and everyone is welcome to contribute. See some [developers](https://github.com/davidsonfellipe/lena.js/graphs/contributors) that helped.
 
