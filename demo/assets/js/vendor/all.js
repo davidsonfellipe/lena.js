@@ -1,5 +1,5 @@
 /*
- *  lena-js - v0.0.1
+ *  lena-js - v0.1.0
  *  Library for image processing
  *  https://github.com/davidsonfellipe/lena-js/
  *

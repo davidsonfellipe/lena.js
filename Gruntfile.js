@@ -37,7 +37,12 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ['lib/lena.js', 'lib/util/*.js', 'lib/filters/*.js', 'demo/assets/js/runner/*.js'],
+        files: [
+          'lib/lena.js',
+          'lib/util/*.js',
+          'lib/filters/*.js',
+          'demo/assets/js/runner/*.js'
+        ],
         tasks: ['concat'],
         options: {
           nospawn: true,
