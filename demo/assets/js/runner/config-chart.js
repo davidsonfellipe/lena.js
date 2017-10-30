@@ -1,5 +1,4 @@
 function getChart(colorRGBA, dataChart) {
-
     var chart;
 
     nv.addGraph(function() {

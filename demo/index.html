@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Lena.JS, a Library for image processing by Davidson Fellipe</title>
-    <meta name="author" content="Davidson Fellipe">
+    <head>
+        <title>Lena.js, a Library for image processing by Davidson Fellipe</title>
+        <meta name="author" content="Davidson Fellipe">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="LenaJS, a Library for image processing">
-    <meta property="og:site_name" content="Davidson Fellipe">
-    <meta property="og:url" content="http://fellipe.com/demos/lena-js/">
-    <meta property="og:image" content="http://fellipe.com/demos/lena-js/assets/img/lena.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="LenaJS, a Library for image processing using Javascript">
-    <meta property="fb:app_id" content="337306756343400">
+        <!-- Open Graph -->
+        <meta property="og:title" content="Lena.js, a Library for image processing">
+        <meta property="og:site_name" content="Davidson Fellipe">
+        <meta property="og:url" content="http://fellipe.com/demos/lena-js/">
+        <meta property="og:image" content="http://fellipe.com/demos/lena-js/assets/img/lena.jpg">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="Lena.js, a Library for image processing using Javascript">
+        <meta property="fb:app_id" content="337306756343400">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
-    <!-- demo styles -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+        <!-- demo styles -->
+        <link rel="stylesheet" href="assets/css/styles.css">
 
-    <!-- vendor styles -->
-    <link rel="stylesheet" href="assets/css/vendor/nvd3/nv.d3.css">
+        <!-- vendor styles -->
+        <link rel="stylesheet" href="assets/css/vendor/nvd3/nv.d3.css">
 
-</head>
-<body>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header">
+            <h1>Lena.js</h1>
+        </header>
 
-  <a href="https://github.com/davidsonfellipe/lena-js/">
-    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" width="149" height="149">
-  </a>
-
-    <h1>Lena.JS Demo</h1>
-
-    <ul class="filter">
-        <li>
+        <section class="grid-1-3 filter">
+            <h1 class="label-filters">pixel to pixel</h1>
             <ul>
-                <li class="label-filters"><span>pixel to pixel:</span></li>
                 <li class="btn btn-filter" draggable="true" data-filter="grayscale">grayscale</li>
                 <li class="btn btn-filter" draggable="true" data-filter="sepia">sepia</li>
                 <li class="btn btn-filter" draggable="true" data-filter="thresholding">thresholding-128</li>
@@ -47,10 +44,10 @@
                 <li class="btn btn-filter" draggable="true" data-filter="blue">blue</li>
                 <li class="btn btn-filter" draggable="true" data-filter="mirror">mirror</li>
             </ul>
-        </li>
-        <li>
+
+            <h1 class="label-filters">edge/line detection</h1>
+
             <ul>
-                <li class="label-filters"><span>edge/line detection:</span></li>
                 <li class="btn btn-filter" draggable="true" data-filter="roberts">roberts</li>
                 <li class="btn btn-filter" draggable="true" data-filter="sharpen">sharpen</li>
                 <li class="btn btn-filter" draggable="true" data-filter="sobelVertical">sobel y</li>
@@ -65,51 +62,68 @@
                 <li class="btn btn-filter" draggable="true" data-filter="prewittHorizontal">prewitt x</li>
                 <li class="btn btn-filter" draggable="true" data-filter="canny">canny</li>
             </ul>
-        </li>
-    </ul>
 
-    <section class="demo-container">
-
-
-        <img id="lena" src="assets/img/lena.jpg" class="image-default" width="400" height="400">
-
-        <div class="content">
-            <div id="destination" class="drop boxes">
-            </div>
-            <canvas id="canvas" width="400" height="400" class="image-canvas"></canvas>
-            <span class="btn btn-drop" draggable="true">Drag and drop filters here</span>
-            <span id="filter-reset" class="btn btn-reset" draggable="true" data-filter="reset">remove all filters</span>
-        </div>
-
-        <section class="info" id="chart1">
-            <svg class="chart" style="width: 300px;"></svg>
+            <h1 class="label-filters">control</h1>
+            <ul>
+                <li class="btn filter-reset">
+                    remove all filters
+                </li>
+            </ul>
         </section>
 
-        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fellipe.com%2Fapps%2Flena-js%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=25" scrolling="no" frameborder="0" class="fb-likes" allowTransparency="true"></iframe>
-    </section>
+        <section class="grid-1-3">
+            <img id="lena" class="image-lena" src="assets/img/lena.jpg">
 
-    <!-- vendor scripts -->
-    <script src="../demo/assets/js/vendor/all.js"></script>
+            <div class="content">
+                <div id="destination" class="destination drop boxes"></div>
+                <canvas id="canvas" width="400" height="400" class="image-canvas"></canvas>
+                <span class="label-drop">Drag and drop filters here</span>
+            </div>
+        </section>
 
-    <!-- scripts for lib -->
-    <script src="../dist/lena.js"></script>
+        <section class="grid-1-3">
+            <section id="chart1">
+                <h1 class="label-filters">Histogram</h1>
+                <svg class="chart" style="width: 300px;"></svg>
+            </section>
+        </section>
 
-    <!-- scripts for runner -->
-    <script src="assets/js/runner/config-chart.js"></script>
 
-    <!-- scripts for runner -->
-    <script src="assets/js/runner/runner.js"></script>
+        <section class="social">
+            <iframe src="http://ghbtns.com/github-btn.html?user=davidsonfellipe&repo=lena.js&type=star&count=true"
+      allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20" class="social-item"></iframe>
 
-    <script>
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-2123552-1']);
-        _gaq.push(['_trackPageview']);
+            <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fellipe.com%2Fapps%2Flena-js%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=25" scrolling="no" frameborder="0" class="social-item" allowTransparency="true"></iframe>
+        </section>
 
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-</body>
+        <section class="lena-copy">
+            Made with <span class="lena-♥">♥</span> by <a href="https://github.com/davidsonfellipe/">Davidson Fellipe</a> with the help of
+            <a href="https://github.com/davidsonfellipe/lena.js/graphs/contributors">our contributors</a>
+        </section>
+
+
+        <!-- vendor scripts -->
+        <script src="../demo/assets/js/vendor/all.js"></script>
+
+        <!-- scripts for lib -->
+        <script src="../dist/lena.js"></script>
+
+        <!-- scripts for runner -->
+        <script src="assets/js/runner/config-chart.js"></script>
+
+        <!-- scripts for runner -->
+        <script src="assets/js/runner/runner.js"></script>
+
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-2123552-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </body>
 </html>
