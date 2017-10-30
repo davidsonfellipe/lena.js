@@ -1,9 +1,22 @@
 {
-  "name": "lena-js",
+  "name": "lena.js",
   "version": "0.2.0",
   "description": "Library for image processing",
   "homepage": "https://github.com/davidsonfellipe/lena-js/",
-  "author": "Davidson Fellipe",
+  "author": {
+    "name": "Davidson Fellipe",
+    "email": "davidsonfellipe@gmail.com",
+    "url": "fellipe.com"
+  },
+  "main": "./dist/lena.min.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/davidsonfellipe/lena-js.git"
+  },
+  "keywords": [
+    "filter",
+    "image manipulation"
+  ],
   "scripts": {
     "lint": "./node_modules/eslint/bin/eslint.js lib/{filters,util}/*.js"
   },
