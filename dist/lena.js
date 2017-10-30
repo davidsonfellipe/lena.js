@@ -6,8 +6,6 @@
  *  Made by Davidson Fellipe
  *  Under MIT License
  */
-// http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/
-
 var LenaJS = {};
 
 LenaJS.getImage = function(img) {
