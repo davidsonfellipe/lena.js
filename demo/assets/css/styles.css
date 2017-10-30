@@ -151,6 +151,11 @@ a {
     position: relative;
     cursor: pointer;
     font-size: 11px;
+    user-select: none;
+    -o-user-select:none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
 }
 
 .btn:hover {
