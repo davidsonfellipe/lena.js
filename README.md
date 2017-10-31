@@ -1,7 +1,6 @@
-# Lena.js
-_Library for image processing_
+# Lena.js <a href="https://codeclimate.com/github/davidsonfellipe/lena.js"><img src="https://codeclimate.com/github/davidsonfellipe/lena.js/badges/gpa.svg" /></a>
 
-
+Tiny library for image processing
 
 ## Demo
 
