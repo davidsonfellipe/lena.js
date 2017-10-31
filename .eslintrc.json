@@ -23,6 +23,7 @@
     },
     "globals": {
         "window": true,
+        "module": true,
         "LenaJS": true
     }
 }
