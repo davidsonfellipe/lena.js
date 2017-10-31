@@ -6,7 +6,7 @@ Tiny library for image processing
 
 [http://fellipe.com/demos/lena-js/](http://fellipe.com/demos/lena-js/)
 
-
+![Demo](https://user-images.githubusercontent.com/381179/32207948-b2dfcff8-bdd5-11e7-8c83-08b86a7616be.gif)
 
 ## Current filters
 
