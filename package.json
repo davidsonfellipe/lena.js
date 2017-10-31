@@ -18,7 +18,7 @@
     "image manipulation"
   ],
   "scripts": {
-    "lint": "./node_modules/eslint/bin/eslint.js lib/{filters,util}/*.js"
+    "lint": "./node_modules/eslint/bin/eslint.js lib/**/*.js lib/*.js"
   },
   "devDependencies": {
     "eslint": "4.10.0",
