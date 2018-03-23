@@ -2,8 +2,6 @@
 
 Tiny library for image processing
 
-<hr />
-
 [![Codeclimate](https://codeclimate.com/github/davidsonfellipe/lena.js/badges/gpa.svg?style=flat)](https://codeclimate.com/github/davidsonfellipe/lena.js)
 [![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://davidsonfellipe.mit-license.org/)
 
