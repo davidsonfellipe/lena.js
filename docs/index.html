@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lena.js, a Library for image processing by Davidson Fellipe</title>
-        <meta name="author" content="Davidson Fellipe">
+        <title>
+            Lena.js, a Library for image processing by Davidson Fellipe
+        </title>
+        <meta name="author" content="Davidson Fellipe" />
 
         <!-- Open Graph -->
-        <meta property="og:title" content="Lena.js, a Library for image processing">
-        <meta property="og:site_name" content="Davidson Fellipe">
-        <meta property="og:url" content="http://fellipe.com/demos/lena-js/">
-        <meta property="og:image" content="http://fellipe.com/demos/lena-js/assets/img/lena.jpg">
-        <meta property="og:type" content="website">
-        <meta property="og:description" content="Lena.js, a Library for image processing using Javascript">
-        <meta property="fb:app_id" content="337306756343400">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            property="og:title"
+            content="Lena.js, a Library for image processing"
+        />
+        <meta property="og:site_name" content="Davidson Fellipe" />
+        <meta property="og:url" content="http://fellipe.com/demos/lena-js/" />
+        <meta
+            property="og:image"
+            content="http://fellipe.com/demos/lena-js/assets/img/lena.jpg"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:description"
+            content="Lena.js, a Library for image processing using Javascript"
+        />
+        <meta property="fb:app_id" content="337306756343400" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
         <!--[if lt IE 9]>
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
         <!-- demo styles -->
-        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/styles.css" />
 
         <!-- vendor styles -->
-        <link rel="stylesheet" href="assets/css/vendor/nvd3/nv.d3.css">
+        <link rel="stylesheet" href="/assets/css/vendor/nvd3/nv.d3.css" />
 
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <header class="header">
@@ -37,15 +51,69 @@
 
             <div class="filter-list-wrapper">
                 <ul>
-                    <li class="btn btn-filter" draggable="true" data-filter="grayscale">grayscale</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="sepia">sepia</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="thresholding">thresholding-128</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="invert">invert</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="saturation">saturation</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="red">red</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="green">green</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="blue">blue</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="mirror">mirror</li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="grayscale"
+                    >
+                        grayscale
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="sepia"
+                    >
+                        sepia
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="thresholding"
+                    >
+                        thresholding-128
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="invert"
+                    >
+                        invert
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="saturation"
+                    >
+                        saturation
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="red"
+                    >
+                        red
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="green"
+                    >
+                        green
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="blue"
+                    >
+                        blue
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="mirror"
+                    >
+                        mirror
+                    </li>
                 </ul>
             </div>
 
@@ -53,19 +121,97 @@
 
             <div class="filter-list-wrapper">
                 <ul>
-                    <li class="btn btn-filter" draggable="true" data-filter="roberts">roberts</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="sharpen">sharpen</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="sobelVertical">sobel y</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="sobelHorizontal">sobel x</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="highpass">highpass</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="lowpass3">lowpass(3x3)</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="lowpass5">lowpass(5x5)</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="laplacian">laplacian</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="gaussian">gaussian</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="bigGaussian">bigGaussian</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="prewittVertical">prewitt y</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="prewittHorizontal">prewitt x</li>
-                    <li class="btn btn-filter" draggable="true" data-filter="canny">canny</li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="roberts"
+                    >
+                        roberts
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="sharpen"
+                    >
+                        sharpen
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="sobelVertical"
+                    >
+                        sobel y
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="sobelHorizontal"
+                    >
+                        sobel x
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="highpass"
+                    >
+                        highpass
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="lowpass3"
+                    >
+                        lowpass(3x3)
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="lowpass5"
+                    >
+                        lowpass(5x5)
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="laplacian"
+                    >
+                        laplacian
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="gaussian"
+                    >
+                        gaussian
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="bigGaussian"
+                    >
+                        bigGaussian
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="prewittVertical"
+                    >
+                        prewitt y
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="prewittHorizontal"
+                    >
+                        prewitt x
+                    </li>
+                    <li
+                        class="btn btn-filter"
+                        draggable="true"
+                        data-filter="canny"
+                    >
+                        canny
+                    </li>
                 </ul>
             </div>
 
@@ -81,9 +227,14 @@
 
         <section class="grid-1-3">
             <div class="content">
-                <img id="lena" class="image-lena" src="assets/img/lena.jpg">
+                <img id="lena" class="image-lena" src="assets/img/lena.jpg" />
                 <div id="destination" class="destination drop boxes"></div>
-                <canvas id="canvas" width="400" height="400" class="image-canvas"></canvas>
+                <canvas
+                    id="canvas"
+                    width="400"
+                    height="400"
+                    class="image-canvas"
+                ></canvas>
                 <span class="label-drop">Drag and drop filters here</span>
             </div>
         </section>
@@ -95,19 +246,35 @@
             </section>
         </section>
 
-
         <section class="social">
-            <iframe src="http://ghbtns.com/github-btn.html?user=davidsonfellipe&repo=lena.js&type=star&count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20" class="social-item"></iframe>
+            <iframe
+                src="http://ghbtns.com/github-btn.html?user=davidsonfellipe&repo=lena.js&type=star&count=true"
+                allowtransparency="true"
+                frameborder="0"
+                scrolling="0"
+                width="95"
+                height="20"
+                class="social-item"
+            ></iframe>
 
-            <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fellipe.com%2Fapps%2Flena-js%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=25" scrolling="no" frameborder="0" class="social-item" allowTransparency="true"></iframe>
+            <iframe
+                src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fellipe.com%2Fapps%2Flena-js%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=25"
+                scrolling="no"
+                frameborder="0"
+                class="social-item"
+                allowTransparency="true"
+            ></iframe>
         </section>
 
         <section class="lena-copy">
-            Made with <span class="lena-♥">♥</span> by <a href="https://github.com/davidsonfellipe/">Davidson Fellipe</a> with the help of
-            <a href="https://github.com/davidsonfellipe/lena.js/graphs/contributors">our contributors</a>
+            Made with <span class="lena-♥">♥</span> by
+            <a href="https://github.com/davidsonfellipe/">Davidson Fellipe</a>
+            with the help of
+            <a
+                href="https://github.com/davidsonfellipe/lena.js/graphs/contributors"
+                >our contributors</a
+            >
         </section>
-
 
         <!-- vendor scripts -->
         <script src="./assets/js/vendor/all.js"></script>
@@ -123,13 +290,19 @@
 
         <script>
             var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-2123552-1']);
-            _gaq.push(['_trackPageview']);
+            _gaq.push(["_setAccount", "UA-2123552-1"]);
+            _gaq.push(["_trackPageview"]);
 
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            (function () {
+                var ga = document.createElement("script");
+                ga.type = "text/javascript";
+                ga.async = true;
+                ga.src =
+                    ("https:" == document.location.protocol
+                        ? "https://ssl"
+                        : "http://www") + ".google-analytics.com/ga.js";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(ga, s);
             })();
         </script>
     </body>
