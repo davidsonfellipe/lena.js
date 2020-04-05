@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
 /demo/video
-/docs
 /ux
 npm-debug.log
