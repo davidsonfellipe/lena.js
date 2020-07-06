@@ -50,7 +50,6 @@ workflows:
   test-deploy:
     jobs:
       - checkout-code:
-          context: org-global
           filters:
             branches:
               ignore: /.*/
@@ -58,7 +57,6 @@ workflows:
               <<: *tag-pattern
 
       - deploy:
-          context: org-global
           requires:
             - checkout-code
           filters:
