@@ -18,7 +18,7 @@
     "image manipulation"
   ],
   "scripts": {
-    "format": "prettier --write \"{,!(.cache|node_modules|public|dist|Gruntfile|docs)/**/}*.{js,json}\"",
+    "format": "prettier --write \"{,!(node_modules|dist|Gruntfile|docs)/**/}*.{js,json}\"",
     "lint": "./node_modules/eslint/bin/eslint.js lib/**/*.js lib/*.js"
   },
   "devDependencies": {

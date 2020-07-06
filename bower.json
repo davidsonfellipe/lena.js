@@ -4,16 +4,9 @@
   "description": "Library for image processing http://fellipe.com/demos/lena-js/",
   "main": "./dist/lena.min.js",
   "homepage": "https://github.com/davidsonfellipe/lena.js/",
-  "license" : ["http://davidsonfellipe.mit-license.org/", "http://www.gnu.org/licenses/"],
-  "ignore": [
-    "node_modules/",
-    ".gitignore"
-  ],
-  "keywords": [
-    "image",
-    "processing",
-    "javascript"
-  ],
+  "license": ["http://davidsonfellipe.mit-license.org/", "http://www.gnu.org/licenses/"],
+  "ignore": ["node_modules/", ".gitignore"],
+  "keywords": ["image", "processing", "javascript"],
   "author": {
     "name": "Davidson Fellipe",
     "web": "http://fellipe.com"
