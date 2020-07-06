@@ -43,7 +43,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > /home/circleci/lena.js/.npmrc
       - run:
           name: Publish package
-          command: npm run publish-beta
+          command: npm run publish-latest
 
 workflows:
   version: 2
