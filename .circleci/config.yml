@@ -1,5 +1,5 @@
 tag-pattern: &tag-pattern
-  only: /^\d+\.\d+\.\d+$/
+  only: /^v\d+\.\d+\.\d+$/
 
 version: 2
 
@@ -43,7 +43,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > /home/circleci/lena.js/.npmrc
       - run:
           name: Publish package
-          command: npm run publish-lib
+          command: npm run publish-beta
 
 workflows:
   version: 2

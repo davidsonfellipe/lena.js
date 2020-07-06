@@ -21,7 +21,8 @@
     "docs": "http-server",
     "format": "prettier --write \"{,!(node_modules|dist|Gruntfile|docs)/**/}*.{js,json}\"",
     "lint": "./node_modules/eslint/bin/eslint.js lib/**/*.js lib/*.js",
-    "publish-lib": "grunt concat; grunt uglify"
+    "build": "grunt concat; grunt uglify",
+    "publish-beta": "yarn build; npm publish --tag beta"
   },
   "devDependencies": {
     "eslint": "^7.4.0",
