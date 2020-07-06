@@ -1,0 +1,68 @@
+tag-pattern: &tag-pattern
+  only: /^\d+\.\d+\.\d+$/
+
+version: 2
+
+defaults: &defaults
+  working_directory: /home/circleci/lena.js
+  docker:
+    - image: circleci/node:12.16.2
+
+jobs:
+  checkout-code:
+    <<: *defaults
+    docker:
+      - image: alpine/git:latest
+    steps:
+      - checkout
+      - save_cache:
+          key: repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - /home/circleci/lena.js
+
+  deploy:
+    <<: *defaults
+    docker:
+      - image: circleci/node:12.16.2
+    steps:
+      - restore_cache:
+          key: repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: lock-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - save_cache:
+          key: lock-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - attach_workspace:
+          at: /home/circleci/lena.js
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > /home/circleci/lena.js/.npmrc
+      - run:
+          name: Publish package
+          command: npm run publish-lib
+
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - checkout-code:
+          context: org-global
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              <<: *tag-pattern
+
+      - deploy:
+          context: org-global
+          requires:
+            - checkout-code
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              <<: *tag-pattern

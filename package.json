@@ -1,6 +1,6 @@
 {
   "name": "lena.js",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Library for image processing",
   "homepage": "https://github.com/davidsonfellipe/lena-js/",
   "author": {
@@ -18,15 +18,18 @@
     "image manipulation"
   ],
   "scripts": {
+    "docs": "http-server",
     "format": "prettier --write \"{,!(node_modules|dist|Gruntfile|docs)/**/}*.{js,json}\"",
-    "lint": "./node_modules/eslint/bin/eslint.js lib/**/*.js lib/*.js"
+    "lint": "./node_modules/eslint/bin/eslint.js lib/**/*.js lib/*.js",
+    "publish-lib": "grunt concat; grunt uglify"
   },
   "devDependencies": {
     "eslint": "^7.4.0",
-    "grunt": "^0.4.5",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.2",
-    "grunt-contrib-watch": "~0.4.4",
+    "grunt": "^1.2.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "http-server": "^0.12.3",
     "prettier": "^2.0.5"
   },
   "licenses": [
