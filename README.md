@@ -29,9 +29,9 @@ Tiny library for image processing
 * lowpass 3x3
 * lowpass 5x5
 
-## Install via bower
+## Install via NPM
 
-`bower install lena.js`
+`npm i lena.js`
 
 ## Developing new filters
 
