@@ -1,3 +1,4 @@
+# https://editorconfig.org
 root = true
 
 [*]
@@ -11,3 +12,7 @@ indent_style = space
 [*.js]
 indent_size = 2
 indent_style = space
+
+[*.md]
+insert_final_newline = false
+trim_trailing_whitespace = false

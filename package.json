@@ -25,6 +25,7 @@
     "publish-latest": "yarn build; npm publish"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "3.2.0",
     "eslint": "^7.4.0",
     "grunt": "^1.2.0",
     "grunt-contrib-concat": "^1.0.1",
@@ -39,5 +40,10 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
