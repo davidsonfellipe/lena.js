@@ -8,7 +8,8 @@
     "email": "davidsonfellipe@gmail.com",
     "url": "fellipe.com"
   },
-  "main": "./dist/lena.min.js",
+  "main": "./dist/bundle.js",
+  "browser": "./dist/bundle.min.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/davidsonfellipe/lena-js.git"
@@ -18,13 +19,16 @@
     "image manipulation"
   ],
   "scripts": {
+    "dev": "rollup -c -w",
     "docs": "http-server",
     "format": "prettier --write \"{,!(node_modules|dist|Gruntfile|docs)/**/}*.{js,json}\"",
     "lint": "./node_modules/eslint/bin/eslint.js lib/**/*.js lib/*.js",
-    "build": "grunt concat; grunt uglify",
+    "build": "rollup -c",
     "publish-latest": "yarn build; npm publish"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
     "cz-conventional-changelog": "3.2.0",
     "eslint": "^7.4.0",
     "grunt": "^1.2.0",
@@ -32,7 +36,9 @@
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
     "http-server": "^0.12.3",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "rollup": "^1.29.0",
+    "rollup-plugin-terser": "^6.1.0"
   },
   "licenses": [
     {
@@ -40,7 +46,9 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
-  "dependencies": {},
+  "dependencies": {
+    "lena.js": "^0.3.1"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
