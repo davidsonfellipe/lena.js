@@ -1,0 +1,41 @@
+html {
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana;
+}
+
+.board {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.box {
+  height: 400px;
+  position: relative;
+  width: 300px;
+}
+
+.legend {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background: #fff;
+  display: inline-block;
+}
