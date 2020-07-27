@@ -69,7 +69,7 @@ const red = function (pixels) {
 const green = function (pixels) {
   let d = pixels.data;
 
-  for (var i = 0; i < d.length; i += 4) {
+  for (let i = 0; i < d.length; i += 4) {
     d[i] = 0;
     d[i + 2] = 0;
   }
@@ -386,16 +386,16 @@ const nonMaximumSuppression = function (pixels, direction) {
     temporaryCtx = temporaryCanvas.getContext('2d'),
     outputData = temporaryCtx.createImageData(canvasWidth, canvasHeight);
 
-  for (var y = 0; y < canvasHeight; y++) {
-    for (var x = 0; x < canvasWidth; x++) {
-      var dstOff = (y * canvasWidth + x) * 4,
+  for (let y = 0; y < canvasHeight; y++) {
+    for (let x = 0; x < canvasWidth; x++) {
+      let dstOff = (y * canvasWidth + x) * 4,
         maxReds = src[dstOff],
         maxGreens = src[dstOff + 1],
         maxBlues = src[dstOff + 2];
 
-      for (var kernelY = 0; kernelY < side; kernelY++) {
-        for (var kernelX = 0; kernelX < side; kernelX++) {
-          var currentKernelY = y + kernelY - halfSide,
+      for (let kernelY = 0; kernelY < side; kernelY++) {
+        for (let kernelX = 0; kernelX < side; kernelX++) {
+          let currentKernelY = y + kernelY - halfSide,
             currentKernelX = x + kernelX - halfSide;
 
           if (
@@ -404,7 +404,7 @@ const nonMaximumSuppression = function (pixels, direction) {
             currentKernelX >= 0 &&
             currentKernelX < canvasWidth
           ) {
-            var offset = (currentKernelY * canvasWidth + currentKernelX) * 4,
+            let offset = (currentKernelY * canvasWidth + currentKernelX) * 4,
               currentKernelAngle = Math.atan2(currentKernelY - y, currentKernelX - x);
 
             maxReds = src[offset] * Math.abs(Math.cos(direction[dstOff] - currentKernelAngle)) > maxReds ? 0 : maxReds;
@@ -448,18 +448,18 @@ const printCanvas = function (selector, idata) {
 };
 
 const getImage = function (img) {
-  var c = document.createElement('canvas');
+  const c = document.createElement('canvas');
   c.width = img.width;
   c.height = img.height;
 
-  var ctx = c.getContext('2d');
+  const ctx = c.getContext('2d');
   ctx.drawImage(img, 0, 0);
 
   return ctx.getImageData(0, 0, img.width, img.height)
 };
 
 const filterImage = function (selector, filter, image, amount = 0) {
-  var args = [getImage(image), amount];
+  let args = [getImage(image), amount];
   return printCanvas(selector, filter.apply(null, args))
 };
 
