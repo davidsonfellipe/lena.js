@@ -18,12 +18,12 @@
     "url": "https://github.com/davidsonfellipe/lena.js/issues"
   },
   "files": [
-    "./dist/bundle.js",
-    "./dist/bundle.min.js"
+    "dist/*"
   ],
   "keywords": [
     "filter",
-    "image manipulation"
+    "image manipulation",
+    "image processing"
   ],
   "scripts": {
     "dev": "rollup -c -w",
