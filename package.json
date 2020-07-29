@@ -40,8 +40,6 @@
     "eslint": "^7.4.0",
     "grunt": "^1.2.0",
     "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-uglify": "^4.0.1",
-    "grunt-contrib-watch": "^1.1.0",
     "http-server": "^0.12.3",
     "prettier": "^2.0.5",
     "rollup": "^1.29.0",
