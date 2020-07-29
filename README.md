@@ -4,6 +4,8 @@ Tiny library for image processing.
 
 [![Codeclimate](https://codeclimate.com/github/davidsonfellipe/lena.js/badges/gpa.svg?style=flat)](https://codeclimate.com/github/davidsonfellipe/lena.js)
 [![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://davidsonfellipe.mit-license.org/)
+[![NPM](https://badgen.net/npm/v/lena.js)](https://www.npmjs.com/package/lena.js)
+
 
 ## Demo
 
