@@ -16,10 +16,6 @@ module.exports = function (grunt) {
       options: {
         banner: '<%= meta.banner %>',
       },
-      basic: {
-        src: ['lib/lena.js', 'lib/util/*.js', 'lib/filters/*.js'],
-        dest: 'dist/lena.js',
-      },
       extras: {
         src: [
           'demo/assets/js/vendor/jquery/*.js',
@@ -29,34 +25,10 @@ module.exports = function (grunt) {
         dest: 'demo/assets/js/vendor/all.js',
       },
     },
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-      },
-      build: {
-        src: 'dist/lena.js',
-        dest: 'dist/lena.min.js',
-      },
-    },
-    watch: {
-      scripts: {
-        files: ['lib/lena.js', 'lib/util/*.js', 'lib/filters/*.js', 'demo/assets/js/runner/*.js'],
-        tasks: ['concat'],
-        options: {
-          nospawn: true,
-          debounceDelay: 250,
-        },
-      },
-    },
   })
-
-  // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify')
 
   // Load the plugin that provides the "concat" task.
   grunt.loadNpmTasks('grunt-contrib-concat')
-
-  grunt.loadNpmTasks('grunt-contrib-watch')
 
   // Default task(s).
   grunt.registerTask('default', ['concat'])
