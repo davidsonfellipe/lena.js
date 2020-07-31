@@ -10,7 +10,7 @@
   <body>
     <div id="result" class="board">
       <div class="box">
-        <img id="image" src="assets/img/coffee.jpg" width="300" height="400" />
+        <img id="image" src="assets/img/sf.png" width="300" height="400" />
       </div>
     </div>
 
@@ -21,6 +21,12 @@
       var result = document.getElementById('result')
 
       var filters = [
+        { name: 'contrast', amount: 100 },
+        { name: 'contrast', amount: 50 },
+        { name: 'contrast', amount: 0 },
+        { name: 'contrast', amount: -50 },
+        { name: 'contrast', amount: -100 },
+        { name: 'grayscale', amount: 0 },
         { name: 'brightness', amount: -50 },
         { name: 'brightness', amount: 0 },
         { name: 'brightness', amount: 50 },
@@ -31,7 +37,6 @@
         { name: 'invert', amount: 0 },
         { name: 'mirror', amount: 0 },
         { name: 'thresholding', amount: 0 },
-        { name: 'grayscale', amount: 0 },
         { name: 'sepia', amount: 0 },
         { name: 'saturation', amount: 0 },
         { name: 'roberts', amount: 0 },
