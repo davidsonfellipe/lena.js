@@ -1,6 +1,6 @@
 
 /*
- *  lena.js - 0.3.1
+ *  lena.js - 0.5.0
  *  Library for image processing <https://github.com/davidsonfellipe/lena-js/>
  *
  *  Made by Davidson Fellipe.
@@ -16,6 +16,49 @@ const invert = function (pixels) {
     pixels.data[i] = 255 - pixels.data[i];
     pixels.data[i + 1] = 255 - pixels.data[i + 1];
     pixels.data[i + 2] = 255 - pixels.data[i + 2];
+  }
+
+  return pixels
+};
+
+const contrast = function (pixels, amount) {
+  const level = Math.pow((amount + 100) / 100, 2);
+
+  let data = pixels.data;
+  let r;
+  let g;
+  let b;
+
+  for (let i = 0; i < data.length; i += 4) {
+    r = data[i];
+    g = data[i + 1];
+    b = data[i + 2];
+
+    r = r / 255;
+    r -= 0.5;
+    r *= level;
+    r += 0.5;
+    r *= 255;
+
+    g = g / 255;
+    g -= 0.5;
+    g *= level;
+    g += 0.5;
+    g *= 255;
+
+    b = b / 255;
+    b -= 0.5;
+    b *= level;
+    b += 0.5;
+    b *= 255;
+
+    r = r < 0 ? 0 : r > 255 ? 255 : r;
+    g = g < 0 ? 0 : g > 255 ? 255 : g;
+    b = b < 0 ? 0 : b > 255 ? 255 : b;
+
+    data[i] = r;
+    data[i + 1] = g;
+    data[i + 2] = b;
   }
 
   return pixels
@@ -111,7 +154,7 @@ const brightness = function (pixels, amount = 0) {
   return pixels
 };
 
-const sepia = function (pixels) {
+const sepia = function (pixels, amount = 100) {
   for (let i = 0; i < pixels.data.length; i += 4) {
     let r = pixels.data[i],
       g = pixels.data[i + 1],
@@ -151,16 +194,15 @@ const saturation = function (pixels) {
   return pixels
 };
 
-const thresholding = function (pixels, args) {
+const thresholding = function (pixels, amount = 128) {
   for (let i = 0; i < pixels.data.length; i += 4) {
     let r = pixels.data[i],
       g = pixels.data[i + 1],
       b = pixels.data[i + 2];
 
     let v = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-    let thr = args || 128;
 
-    pixels.data[i] = pixels.data[i + 1] = pixels.data[i + 2] = v > thr ? 255 : 0;
+    pixels.data[i] = pixels.data[i + 1] = pixels.data[i + 2] = v > amount ? 255 : 0;
   }
 
   return pixels
@@ -494,6 +536,7 @@ exports.bigGaussian = bigGaussian;
 exports.blue = blue;
 exports.brightness = brightness;
 exports.canny = canny;
+exports.contrast = contrast;
 exports.filterImage = filterImage;
 exports.gaussian = gaussian;
 exports.getImage = getImage;
