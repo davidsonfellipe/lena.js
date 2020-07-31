@@ -6,6 +6,18 @@ Tiny library for image processing.
 [![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://davidsonfellipe.mit-license.org/)
 [![NPM](https://badgen.net/npm/v/lena.js)](https://www.npmjs.com/package/lena.js)
 
+## Install via NPM 
+
+```
+npm install lena.js --save
+```
+
+## Install via yarn 
+
+```
+yarn add lena.js
+```
+
 
 ## Demo
 
@@ -15,39 +27,24 @@ Tiny library for image processing.
 
 ## Current filters
 
-* gaussian
-* grayscale
-* highpass
-* invert
-* laplacian
-* prewitt
-* rgb
-* roberts
-* saturation
-* sepia
-* sharpen
-* sobel
-* thresholding
-* lowpass 3x3
-* lowpass 5x5
-
-## Install via NPM
-
-`npm i lena.js`
-
-## Developing new filters
-
-Follow those steps to develop new filters.
-
-| Steps  | Description                              | Command                        |
-| :----- | :--------------------------------------- | :----------------------------- |
-| **01** | Install npm                              | `npm install`             |
-| **02** | If you have installed Grunt globally in the past, you will need to remove it first | `npm uninstall -g grunt`       |
-| **03** | Install grunt-cli                        | `npm install -g grunt-cli`     |
-| **04** | Install grunt to current project         | `npm install grunt --save-dev` |
-| **05** | And finally run it with                  | `grunt watch`                  |
-
-
+* Canny
+* Gaussian
+* Grayscale
+* Highpass
+* Invert
+* Laplacian
+* Mirror
+* Noise
+* Prewitt
+* RGB
+* Roberts
+* Saturation
+* Sepia
+* Sharpen
+* Sobel
+* Thresholding
+* Lowpass 3x3
+* Lowpass 5x5
 
 ## Author
 
