@@ -1,6 +1,6 @@
 
 /*
- *  lena.js - 0.5.0
+ *  lena.js - 0.6.0
  *  Library for image processing <https://github.com/davidsonfellipe/lena-js/>
  *
  *  Made by Davidson Fellipe.
@@ -154,7 +154,7 @@ const brightness = function (pixels, amount = 0) {
   return pixels
 };
 
-const sepia = function (pixels, amount = 100) {
+const sepia = function (pixels) {
   for (let i = 0; i < pixels.data.length; i += 4) {
     let r = pixels.data[i],
       g = pixels.data[i + 1],
