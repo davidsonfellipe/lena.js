@@ -221,7 +221,7 @@ const grayscale = function (pixels) {
 };
 
 const noise = function (pixels, amount = 0) {
-  var level = amount * 255 * 0.1;
+  const level = amount * 255 * 0.1;
   let random;
 
   for (let i = 0; i < pixels.data.length; i += 4) {
