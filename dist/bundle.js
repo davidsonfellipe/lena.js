@@ -1,6 +1,6 @@
 
 /*
- *  lena.js - 0.6.0
+ *  lena.js - 0.7.0
  *  Library for image processing <https://github.com/davidsonfellipe/lena-js/>
  *
  *  Made by Davidson Fellipe.
