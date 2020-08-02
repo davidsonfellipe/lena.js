@@ -19,7 +19,8 @@
     "url": "https://github.com/davidsonfellipe/lena.js/issues"
   },
   "files": [
-    "dist/*"
+    "index.js",
+    "index.min.js"
   ],
   "keywords": [
     "filter",
