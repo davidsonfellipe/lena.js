@@ -8,9 +8,9 @@
     "email": "davidsonfellipe@gmail.com",
     "url": "fellipe.com"
   },
-  "main": "./dist/bundle.js",
-  "module": "./dist/bundle.js",
-  "browser": "./dist/bundle.min.js",
+  "main": "./index.js",
+  "module": "./index.js",
+  "browser": "./index.min.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/davidsonfellipe/lena-js.git"

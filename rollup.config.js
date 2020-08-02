@@ -16,12 +16,12 @@ export default {
   output: [
     {
       banner: BANNER,
-      file: './dist/bundle.js',
+      file: './index.js',
       format: 'cjs',
     },
     {
       banner: BANNER,
-      file: './dist/bundle.min.js',
+      file: './index.min.js',
       format: 'iife',
       name: 'LenaJS',
       plugins: [terser()],
