@@ -9,6 +9,7 @@
     "url": "fellipe.com"
   },
   "main": "./dist/bundle.js",
+  "module": "./dist/bundle.js",
   "browser": "./dist/bundle.min.js",
   "repository": {
     "type": "git",
