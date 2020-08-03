@@ -1,6 +1,6 @@
 {
   "name": "lena.js",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "Library for image processing",
   "homepage": "https://github.com/davidsonfellipe/lena-js/",
   "author": {
@@ -18,7 +18,7 @@
     "url": "https://github.com/davidsonfellipe/lena.js/issues"
   },
   "files": [
-    "./dist"
+    "dist"
   ],
   "keywords": [
     "filter",
@@ -31,7 +31,7 @@
     "format": "prettier --write \"{,!(node_modules|dist|Gruntfile|docs)/**/}*.{js,json}\"",
     "lint": "./node_modules/eslint/bin/eslint.js lib/**/*.js lib/*.js",
     "build": "rollup -c",
-    "publish-latest": "yarn build; npm publish"
+    "publish-latest": "yarn build; npm publish --tag beta"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.1",
