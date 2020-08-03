@@ -9,7 +9,6 @@
     "url": "fellipe.com"
   },
   "main": "./dist/index.js",
-  "browser": "./dist/browser.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/davidsonfellipe/lena-js.git"
@@ -18,7 +17,7 @@
     "url": "https://github.com/davidsonfellipe/lena.js/issues"
   },
   "files": [
-    "./dist"
+    "dist"
   ],
   "keywords": [
     "filter",
