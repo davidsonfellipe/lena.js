@@ -1,4 +1,4 @@
-# Lena.js 
+# Lena.js
 
 Tiny library for image processing.
 
@@ -6,18 +6,23 @@ Tiny library for image processing.
 [![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://davidsonfellipe.mit-license.org/)
 [![NPM](https://badgen.net/npm/v/lena.js)](https://www.npmjs.com/package/lena.js)
 
-## Install via NPM 
+## Install via NPM
 
 ```
 npm install lena.js --save
 ```
 
-## Install via yarn 
+## Install via yarn
 
 ```
 yarn add lena.js
 ```
 
+## Run demo
+
+```
+yarn demo
+```
 
 ## Demo
 
@@ -27,24 +32,24 @@ yarn add lena.js
 
 ## Current filters
 
-* Canny
-* Gaussian
-* Grayscale
-* Highpass
-* Invert
-* Laplacian
-* Mirror
-* Noise
-* Prewitt
-* RGB
-* Roberts
-* Saturation
-* Sepia
-* Sharpen
-* Sobel
-* Thresholding
-* Lowpass 3x3
-* Lowpass 5x5
+- Canny
+- Gaussian
+- Grayscale
+- Highpass
+- Invert
+- Laplacian
+- Mirror
+- Noise
+- Prewitt
+- RGB
+- Roberts
+- Saturation
+- Sepia
+- Sharpen
+- Sobel
+- Thresholding
+- Lowpass 3x3
+- Lowpass 5x5
 
 ## Author
 
@@ -52,18 +57,13 @@ yarn add lena.js
 <br>
 [Davidson Fellipe](https://github.com/davidsonfellipe)
 
-
-
 ## Tutorials
 
--  [How to add image filters (photo effects) to images in the browser with JavaScript using Lena.js](https://ourcodeworld.com/articles/read/515/how-to-add-image-filters-photo-effects-to-images-in-the-browser-with-javascript-using-lena-js)
-
-
+- [How to add image filters (photo effects) to images in the browser with JavaScript using Lena.js](https://ourcodeworld.com/articles/read/515/how-to-add-image-filters-photo-effects-to-images-in-the-browser-with-javascript-using-lena-js)
 
 ## Contribute
 
 Anyone and everyone is welcome to contribute. See some [developers](https://github.com/davidsonfellipe/lena.js/graphs/contributors) that helped.
-
 
 ## License
 

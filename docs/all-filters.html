@@ -1,90 +1,88 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Lena.JS</title>
     <meta charset="UTF-8" />
 
     <link rel="stylesheet" href="assets/css/all-filters.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="result" class="board">
-        <div class="box">
-            <img id="image" src="assets/img/sf.png" width="300" height="400" />
-        </div>
+      <div class="box">
+        <img id="image" src="assets/img/sf.png" width="300" height="400" />
+      </div>
     </div>
 
-    <script src="../dist/bundle.min.js"></script>
+    <script src="../dist/browser.js"></script>
 
     <script>
-        var image = document.getElementById('image')
-        var result = document.getElementById('result')
+      var image = document.getElementById('image')
+      var result = document.getElementById('result')
 
-        var filters = [
-            { name: 'noise', amount: 200 },
-            { name: 'noise', amount: 30 },
-            { name: 'noise', amount: 10 },
-            { name: 'noise', amount: 5 },
-            { name: 'noise', amount: 1 },
-            { name: 'noise', amount: 0 },
-            { name: 'contrast', amount: 100 },
-            { name: 'contrast', amount: 50 },
-            { name: 'contrast', amount: 0 },
-            { name: 'contrast', amount: -50 },
-            { name: 'contrast', amount: -100 },
-            { name: 'grayscale', amount: 0 },
-            { name: 'brightness', amount: -50 },
-            { name: 'brightness', amount: 0 },
-            { name: 'brightness', amount: 50 },
-            { name: 'canny', amount: 0 },
-            { name: 'red', amount: 0 },
-            { name: 'blue', amount: 0 },
-            { name: 'green', amount: 0 },
-            { name: 'invert', amount: 0 },
-            { name: 'mirror', amount: 0 },
-            { name: 'thresholding', amount: 0 },
-            { name: 'sepia', amount: 0 },
-            { name: 'saturation', amount: 0 },
-            { name: 'roberts', amount: 0 },
-            { name: 'highpass', amount: 0 },
-            { name: 'lowpass3', amount: 0 },
-            { name: 'lowpass5', amount: 0 },
-            { name: 'laplacian', amount: 0 },
-            { name: 'gaussian', amount: 0 },
-            { name: 'bigGaussian', amount: 0 },
-            { name: 'prewittHorizontal', amount: 0 },
-            { name: 'prewittVertical', amount: 0 },
-            { name: 'sobelHorizontal', amount: 0 },
-            { name: 'sobelVertical', amount: 0 },
-            { name: 'sharpen', amount: 0 },
-        ]
+      var filters = [
+        { name: 'noise', amount: 200 },
+        { name: 'noise', amount: 30 },
+        { name: 'noise', amount: 10 },
+        { name: 'noise', amount: 5 },
+        { name: 'noise', amount: 1 },
+        { name: 'noise', amount: 0 },
+        { name: 'contrast', amount: 100 },
+        { name: 'contrast', amount: 50 },
+        { name: 'contrast', amount: 0 },
+        { name: 'contrast', amount: -50 },
+        { name: 'contrast', amount: -100 },
+        { name: 'grayscale', amount: 0 },
+        { name: 'brightness', amount: -50 },
+        { name: 'brightness', amount: 0 },
+        { name: 'brightness', amount: 50 },
+        { name: 'canny', amount: 0 },
+        { name: 'red', amount: 0 },
+        { name: 'blue', amount: 0 },
+        { name: 'green', amount: 0 },
+        { name: 'invert', amount: 0 },
+        { name: 'mirror', amount: 0 },
+        { name: 'thresholding', amount: 0 },
+        { name: 'sepia', amount: 0 },
+        { name: 'saturation', amount: 0 },
+        { name: 'roberts', amount: 0 },
+        { name: 'highpass', amount: 0 },
+        { name: 'lowpass3', amount: 0 },
+        { name: 'lowpass5', amount: 0 },
+        { name: 'laplacian', amount: 0 },
+        { name: 'gaussian', amount: 0 },
+        { name: 'bigGaussian', amount: 0 },
+        { name: 'prewittHorizontal', amount: 0 },
+        { name: 'prewittVertical', amount: 0 },
+        { name: 'sobelHorizontal', amount: 0 },
+        { name: 'sobelVertical', amount: 0 },
+        { name: 'sharpen', amount: 0 },
+      ]
 
-        var canvas = document.getElementById('canvas')
+      var canvas = document.getElementById('canvas')
 
-        let html = ''
-        for (let i = 0; i < filters.length; i++) {
-            const filterName = filters[i].name
-            const filterAmount = filters[i].amount
+      let html = ''
+      for (let i = 0; i < filters.length; i++) {
+        const filterName = filters[i].name
+        const filterAmount = filters[i].amount
 
-            html +=
-                `<div class="box">` +
-                `<canvas id="${filterName}-${filterAmount}" width="300" height="400"></canvas>` +
-                `<span class="legend">${filterName} [${filterAmount}]</span>` +
-                `</div>`
-        }
+        html +=
+          `<div class="box">` +
+          `<canvas id="${filterName}-${filterAmount}" width="300" height="400"></canvas>` +
+          `<span class="legend">${filterName} [${filterAmount}]</span>` +
+          `</div>`
+      }
 
-        result.innerHTML += html
+      result.innerHTML += html
 
-        for (let i = 0; i < filters.length; i++) {
-            LenaJS.filterImage(
-                document.getElementById(`${filters[i].name}-${filters[i].amount}`),
-                LenaJS[filters[i].name],
-                image,
-                filters[i].amount
-            )
-        }
+      for (let i = 0; i < filters.length; i++) {
+        LenaJS.filterImage(
+          document.getElementById(`${filters[i].name}-${filters[i].amount}`),
+          LenaJS[filters[i].name],
+          image,
+          filters[i].amount
+        )
+      }
     </script>
-</body>
-
+  </body>
 </html>
