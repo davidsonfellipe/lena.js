@@ -55,7 +55,7 @@ workflows:
       - checkout-code:
           filters:
             branches:
-              ignore: /.*/
+              only: beta
             tags:
               <<: *tag-pattern
 
