@@ -39,6 +39,9 @@ jobs:
       - attach_workspace:
           at: /home/circleci/lena.js
       - run:
+          name: Build Dependency
+          command: yarn build
+      - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > /home/circleci/lena.js/.npmrc
       - run:
