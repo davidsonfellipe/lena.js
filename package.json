@@ -8,9 +8,8 @@
     "email": "davidsonfellipe@gmail.com",
     "url": "fellipe.com"
   },
-  "main": "./index.js",
-  "module": "./index.js",
-  "browser": "./index.min.js",
+  "main": "./dist/index.js",
+  "browser": "./dist/browser.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/davidsonfellipe/lena-js.git"
@@ -19,8 +18,7 @@
     "url": "https://github.com/davidsonfellipe/lena.js/issues"
   },
   "files": [
-    "index.js",
-    "index.min.js"
+    "./dist"
   ],
   "keywords": [
     "filter",
@@ -29,7 +27,7 @@
   ],
   "scripts": {
     "dev": "rollup -c -w",
-    "docs": "http-server",
+    "demo": "yarn build; http-server",
     "format": "prettier --write \"{,!(node_modules|dist|Gruntfile|docs)/**/}*.{js,json}\"",
     "lint": "./node_modules/eslint/bin/eslint.js lib/**/*.js lib/*.js",
     "build": "rollup -c",
