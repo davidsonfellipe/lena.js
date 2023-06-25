@@ -27,7 +27,7 @@
   "scripts": {
     "dev": "rollup -c -w",
     "demo": "yarn build; http-server",
-    "format": "prettier --write \"{,!(node_modules|dist|Gruntfile|docs)/**/}*.{js,json}\"",
+    "format": "prettier --write \"{,!(node_modules|dist|docs)/**/}*.{js,json}\"",
     "lint": "./node_modules/eslint/bin/eslint.js lib/**/*.js lib/*.js",
     "build": "rollup -c",
     "publish-latest": "yarn build; npm publish"
