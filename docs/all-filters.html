@@ -41,6 +41,7 @@
         { name: 'blue', amount: 0 },
         { name: 'green', amount: 0 },
         { name: 'invert', amount: 0 },
+        { name: 'gamma', amount: 0 },
         { name: 'mirror', amount: 0 },
         { name: 'thresholding', amount: 0 },
         { name: 'sepia', amount: 0 },
@@ -62,6 +63,7 @@
       var canvas = document.getElementById('canvas')
 
       let html = ''
+
       for (let i = 0; i < filters.length; i++) {
         const filterName = filters[i].name
         const filterAmount = filters[i].amount

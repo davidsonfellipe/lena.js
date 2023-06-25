@@ -6,7 +6,7 @@
   "author": {
     "name": "Davidson Fellipe",
     "email": "davidsonfellipe@gmail.com",
-    "url": "fellipe.com"
+    "url": "https://fellipe.com"
   },
   "main": "./dist/index.js",
   "repository": {
